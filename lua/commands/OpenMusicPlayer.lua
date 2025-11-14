@@ -4,18 +4,7 @@ local function assign_command()
     vim.api.nvim_create_user_command("OpenMusicPlayer", function(opts)
         local background = Popup({
             enter = true,
-            border = {
-                style = {
-                    top_left = "◜",
-                    top_right = "◝",
-                    bottom_right = "◞",
-                    bottom_left = "◟",
-                    top = "─",
-                    bottom = "─",
-                    left = "│",
-                    right = "│",
-                }
-            },
+            border = "shadow",
             position = "50%",
             size = {
                 width = "80%",
