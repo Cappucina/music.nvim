@@ -10,8 +10,14 @@ local function assign_command()
     vim.api.nvim_set_hl(0, "PopupTitle", { bg = "#000000", fg = "#ffffff", bold = true })
     vim.api.nvim_set_hl(0, "PopupDesc", { bg = "#000000", fg = "#cccccc" })
     
+    local background = nil
     vim.api.nvim_create_user_command("OpenMusicPlayer", function(opts)
-        local background = Popup({
+        if background and background.mounted then
+            background:focus()
+            return
+        end
+
+        background = Popup({
             enter = true,
             border = "double",
             position = "50%",
@@ -28,36 +34,6 @@ local function assign_command()
 
         -- TITLE --
         vim.api.nvim_buf_set_lines(background.bufnr, 0, 1, false, { " Neovim Music Player" })
-    
-        -- SEARCH BAR --
-        local search_bar = Input({
-            position = "50%",
-            size = {
-                width = 20
-            },
-            relative = "editor",
-            border = {
-                style = "single"
-            },
-            win_options = {
-                winhighlight = "Normal:Normal,FloatBorder:Normal"
-            },
-        }, {
-            prompt = "> ",
-            default_value = "",
-            on_submit = function(value)
-                local cursor = vim.api.nvim_win_get_cursor(search_bar.win)
-                local val = search_bar.buf:get_lines(0, -1, false)[1]
-
-                search_bar:unmount()
-                search_bar:mount()
-                
-                vim.api.nvim_buf_set_lines(search_bar.buf, 0, -1, false, { val })
-                vim.api.nvim_win_set_cursor(search_bar.win, cursor)
-            end,
-        })
-
-        search_bar:mount()
     end, {
         nargs = 0
     })
