@@ -1,20 +1,9 @@
 local object = require("framework.components.object")
-local clone_methods = require("utility").clone_methods
 
-local objects = {}
 local framework = {}
 
-local function clone_and_merge(target, ...)
-    local sources = {...}
-    for _, source in ipairs(sources) do
-        local cloned = clone_methods(source)
-        for key, value in pairs(cloned) do
-            target[key] = value
-        end
-    end
-    return target
+for key, value in pairs(object) do
+    framework[key] = value
 end
-
-clone_and_merge(framework, object)
 
 return framework
