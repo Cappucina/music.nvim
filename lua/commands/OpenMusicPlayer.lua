@@ -1,5 +1,5 @@
 local function assign_command()
-    local framework = require("framework.init")
+    local framework = require("framework")
     
     vim.api.nvim_create_user_command("OpenMusicPlayer", function(opts)
         framework.create_object("frame", "50%", 150, 150)
