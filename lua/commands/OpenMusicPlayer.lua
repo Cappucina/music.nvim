@@ -13,7 +13,6 @@ local function assign_command()
     local background = nil
     vim.api.nvim_create_user_command("OpenMusicPlayer", function(opts)
         if background then
-            background:focus()
             return
         end
 
