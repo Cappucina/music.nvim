@@ -1,8 +1,28 @@
+local Popup, Layout = require("nui.popup"), require("nui.Layout")
+
 local function assign_command()
-    local object = require("framework.components.object")
-    
     vim.api.nvim_create_user_command("OpenMusicPlayer", function(opts)
-        object.create_object("frame", "50%", 50, 50)
+        local background = Popup({
+            enter = true,
+            border = "single" -- "double" is applicable
+        })
+
+        local layout = Layout(
+            {
+                position = "50%",
+                size = {
+                    width = 80,
+                    height = "60%"
+                },
+            },
+            Layout.Box({
+                Layout.Box(background, {
+                    size = "40%"
+                }),
+            }, {
+                size = "40%"
+            }),
+        )
     end, {
         nargs = 0
     })
