@@ -22,13 +22,7 @@ local function assign_command()
 
         background:mount()
 
-        local buf = background.buf
-        local line_count = vim.api.nvim_buf_line_count(buf)
-        vim.api.nvim_buf_set_lines(buf, 0, line_count, false, { "My Popup Title", "", "This is the description text of the popup." })
-
-        local ns = vim.api.nvim_create_namespace("popup")  -- create a namespace
-        vim.api.nvim_buf_add_highlight(buf, ns, "PopupTitle", 0, 0, -1)  -- first line
-        vim.api.nvim_buf_add_highlight(buf, ns, "PopupDesc", 2, 0, -1)   -- third line
+        vim.api.nvim_buf_set_lines(popup.bufnr, 0, 1, false, { "Hello World" })
     end, {
         nargs = 0
     })
