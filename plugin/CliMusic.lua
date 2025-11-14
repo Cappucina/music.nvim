@@ -1,1 +1,1 @@
-require("cli-music").setup()
+require("cli-music.init").setup()
