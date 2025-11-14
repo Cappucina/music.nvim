@@ -20,9 +20,11 @@ local function assign_command()
                     size = "40%"
                 }),
             }, {
-                size = "40%"
-            }),
+                dir = "row"
+            })
         )
+
+        layout:mount()
     end, {
         nargs = 0
     })
