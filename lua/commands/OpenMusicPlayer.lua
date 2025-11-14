@@ -13,18 +13,19 @@ local function assign_command()
         vim.api.nvim_set_hl(0, "BlackFloat", { bg = "#000000", fg = "#ffffff" })
         vim.api.nvim_set_hl(0, "BlackFloatBorder", { bg = "#000000", fg = "#ffffff" })
 
-        local layout = Layout(
-            {
-                position = "50%",
-                size = {
-                    width = "75%",
-                    height = "80%"
-                },
-            },
-            Layout.Box({ background })
-        )
+        -- local layout = Layout(
+        --     {
+        --         position = "50%",
+        --         size = {
+        --             width = "75%",
+        --             height = "80%"
+        --         },
+        --     },
+        --     Layout.Box({ background })
+        -- )
 
-        layout:mount()
+        -- layout:mount()
+        
     end, {
         nargs = 0
     })
