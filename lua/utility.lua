@@ -16,6 +16,13 @@ local function is_valid_mode(mode)
     return false
 end
 
+local function clone_methods(source)
+    local t = {}
+    setmetatable(t, { __index = source })
+    return t
+end
+
 return {
-    is_valid_mode = is_valid_mode
+    is_valid_mode = is_valid_mode,
+    clone_methods = clone_methods
 }
