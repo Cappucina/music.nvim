@@ -5,12 +5,21 @@ local function assign_command()
         local background = Popup({
             enter = true,
             border = {
-                style = "rounded"
+                style = {
+                    top_left = "◜",
+                    top_right = "◝",
+                    bottom_right = "◞",
+                    bottom_left = "◟",
+                    top = "─",
+                    bottom = "─",
+                    left = "│",
+                    right = "│",
+                }
             },
             position = "50%",
             size = {
                 width = "80%",
-                height = "80%"
+                height = "65%"
             }
         })
 
