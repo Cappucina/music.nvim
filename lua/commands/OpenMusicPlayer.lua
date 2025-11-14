@@ -10,12 +10,11 @@ local function assign_command()
             position = "50%",
             size = {
                 width = "80%",
-                height = "60%"
+                height = "80%"
             }
         })
 
         background:mount()
-        
     end, {
         nargs = 0
     })
