@@ -24,7 +24,14 @@ local function create_object(class, position, width, height)
                 width = width,
                 height = height
             }
-        }
+        },
+        layout.Box({
+            layout.Box(main_popup, {
+                size = "100%"
+            })
+        }, {
+            dir = "row"
+        })
     )
 
     main_layout:mount()
