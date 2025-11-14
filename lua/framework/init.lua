@@ -2,9 +2,7 @@ local object = require("framework.components.object")
 local clone_methods = require("utility").clone_methods
 
 local objects = {}
-local framework = {
-    objects = objects
-}
+local framework = {}
 
 local function clone_and_merge(target, ...)
     local sources = {...}

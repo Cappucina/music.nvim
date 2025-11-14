@@ -1,4 +1,4 @@
-local objects = require("framework.init").objects
+local objects = {}
 
 -- UI components created and handled with nui.nvim
 local function create_object(class, position, width, height)
