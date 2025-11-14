@@ -1,9 +1,10 @@
 local Popup, Layout = require("nui.popup"), require("nui.layout")
 
 local function assign_command()
-    -- highlight groups
     vim.api.nvim_set_hl(0, "MatteBlackPopup", { bg = "#000000", fg = "#ffffff" })
     vim.api.nvim_set_hl(0, "MatteBlackBorder", { bg = "#000000", fg = "#ffffff" })
+    vim.api.nvim_set_hl(0, "PopupTitle", { bg = "#000000", fg = "#ffffff", bold = true })
+    vim.api.nvim_set_hl(0, "PopupDesc", { bg = "#000000", fg = "#cccccc" })
     
     vim.api.nvim_create_user_command("OpenMusicPlayer", function(opts)
         local background = Popup({
@@ -20,6 +21,12 @@ local function assign_command()
         })
 
         background:mount()
+
+        local buf = background.buf
+        vim.api.nvim_buf_set_lines(buf, 0, -1, false, { "My Popup Title", "", "This is the description text of the popup." })
+
+        vim.api.nvim_buf_add_highlight(buf, -1, "PopupTitle", 0, 0, -1)
+        vim.api.nvim_buf_add_highlight(buf, -1, "PopupDesc", 2, 0, -1)
     end, {
         nargs = 0
     })
