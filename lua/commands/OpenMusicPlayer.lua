@@ -1,4 +1,8 @@
-local Popup, Layout = require("nui.popup"), require("nui.layout")
+local Popup = require("nui.popup")
+local Layout = require("nui.layout")
+local Input = require("nui.input")
+
+local event = require("nui.utils.autocmd").event
 
 local function assign_command()
     vim.api.nvim_set_hl(0, "MatteBlackPopup", { bg = "#000000", fg = "#ffffff" })
@@ -22,7 +26,35 @@ local function assign_command()
 
         background:mount()
 
-        vim.api.nvim_buf_set_lines(background.bufnr, 0, 1, false, { " Hello World" })
+        -- TITLE --
+        vim.api.nvim_buf_set_lines(background.bufnr, 0, 1, false, { " Neovim Music Player" })
+    
+        -- SEARCH BAR --
+        local search_bar = Input({
+            position = "50%",
+            size = {
+                width = 20
+            },
+            relative = "editor",
+            border = {
+                style = "single"
+            },
+            win_options = {
+                winhighlight = "Normal:Normal,FloatBorder:Normal"
+            },
+        }, {
+            prompt = "> ",
+            default_value = "",
+            on_close = function()
+                popup:unmount()
+            end,
+            on_submit = function(value)
+                print("submitted: " .. value)
+                popup:unmount()
+            end,
+        })
+
+        search_bar:mount()
     end, {
         nargs = 0
     })
