@@ -46,9 +46,14 @@ local function assign_command()
             prompt = "> ",
             default_value = "",
             on_submit = function(value)
-                print("submitted: " .. value)
-                -- background:unmount()
-                return true
+                local cursor = vim.api.nvim_win_get_cursor(search_bar.win)
+                local val = search_bar.buf:get_lines(0, -1, false)[1]
+
+                search_bar:unmount()
+                search_bar:mount()
+                
+                vim.api.nvim_buf_set_lines(search_bar.buf, 0, -1, false, { val })
+                vim.api.nvim_win_set_cursor(search_bar.win, cursor)
             end,
         })
 
