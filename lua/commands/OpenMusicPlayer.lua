@@ -22,7 +22,7 @@ local function assign_command()
 
         background:mount()
 
-        vim.api.nvim_buf_set_lines(popup.bufnr, 0, 1, false, { "Hello World" })
+        vim.api.nvim_buf_set_lines(background.bufnr, 0, 1, false, { "Hello World" })
     end, {
         nargs = 0
     })
