@@ -16,3 +16,5 @@ local function clone_and_merge(target, ...)
 end
 
 clone_and_merge(framework, object)
+
+return framework
