@@ -21,7 +21,7 @@ local function assign_command()
                     height = "80%"
                 },
             },
-            Layout.Box({})
+            Layout.Box({ background })
         )
 
         layout:mount()
