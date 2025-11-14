@@ -6,10 +6,10 @@ local function create_object(class, position, width, height)
     local layout = require("nui.layout")
 
     if not width or width <= 0 then
-        width = 150
+        width = 50
     end
     if not height or height <= 0 then
-        height = 150
+        height = 50
     end
 
     local main_popup = popup({
