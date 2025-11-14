@@ -48,6 +48,7 @@ local function assign_command()
             on_submit = function(value)
                 print("submitted: " .. value)
                 -- background:unmount()
+                return true
             end,
         })
 
