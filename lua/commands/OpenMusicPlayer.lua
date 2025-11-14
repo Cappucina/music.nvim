@@ -23,7 +23,6 @@ local function assign_command()
         background:mount()
 
         local buf = background.buf
-        
         local line_count = vim.api.nvim_buf_line_count(buf)
         vim.api.nvim_buf_set_lines(buf, 0, line_count, false, { "My Popup Title", "", "This is the description text of the popup." })
 
