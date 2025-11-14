@@ -1,6 +1,10 @@
 local Popup, Layout = require("nui.popup"), require("nui.layout")
 
 local function assign_command()
+    -- highlight groups
+    vim.api.nvim_set_hl(0, "MatteBlackPopup", { bg = "#000000", fg = "#ffffff" })
+    vim.api.nvim_set_hl(0, "MatteBlackBorder", { bg = "#000000", fg = "#ffffff" })
+    
     vim.api.nvim_create_user_command("OpenMusicPlayer", function(opts)
         local background = Popup({
             enter = true,
@@ -9,6 +13,10 @@ local function assign_command()
             size = {
                 width = "80%",
                 height = "65%"
+            }
+            win_options = {
+                -- assign highlight groups for the content and border
+                winhighlight = "Normal:MatteBlackPopup,FloatBorder:MatteBlackBorder"
             }
         })
 
