@@ -8,3 +8,5 @@ cli_music.setup = function()
 
     KeybindManager.load()
 end
+
+return cli_music
