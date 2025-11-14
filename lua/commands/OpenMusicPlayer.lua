@@ -45,12 +45,9 @@ local function assign_command()
         }, {
             prompt = "> ",
             default_value = "",
-            on_close = function()
-                popup:unmount()
-            end,
             on_submit = function(value)
                 print("submitted: " .. value)
-                popup:unmount()
+                -- background:unmount()
             end,
         })
 
