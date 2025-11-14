@@ -1,6 +1,8 @@
 vim.api.nvim_create_user_command("test123", function(opts)
     print("works")
-end)
+end, {
+    nargs = 0
+})
 
 vim.api.nvim_create_user_command("OpenMusicPlayer", function(opts)
     local Input = require("nui.input")
