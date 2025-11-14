@@ -3,6 +3,6 @@ local KeybindManager = require("core.KeybindManager")
 require("utility")
 require("dependencies")
 
-require("OpenMusicPlayer")
+require("commands.OpenMusicPlayer")
 
 KeybindManager.load()
