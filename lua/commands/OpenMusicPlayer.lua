@@ -13,9 +13,8 @@ local function assign_command()
             size = {
                 width = "80%",
                 height = "65%"
-            }
+            },
             win_options = {
-                -- assign highlight groups for the content and border
                 winhighlight = "Normal:MatteBlackPopup,FloatBorder:MatteBlackBorder"
             }
         })
