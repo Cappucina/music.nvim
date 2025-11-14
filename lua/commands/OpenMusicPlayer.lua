@@ -1,5 +1,5 @@
 local function assign_command()
-    vim.api.nvim_create_user_command("test123", function()
+    vim.api.nvim_create_user_command("Test123", function()
         print("test")
     end, {
         nargs = 0
