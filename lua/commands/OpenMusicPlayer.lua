@@ -1,4 +1,4 @@
-local Popup, Layout = require("nui.popup"), require("nui.Layout")
+local Popup, Layout = require("nui.popup"), require("nui.layout")
 
 local function assign_command()
     vim.api.nvim_create_user_command("OpenMusicPlayer", function(opts)
